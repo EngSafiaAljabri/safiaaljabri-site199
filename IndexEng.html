@@ -1,0 +1,1522 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safiya Al Jabri — Software Engineer & Certified Trainer</title>
+    <meta name="description" content="Live Resume Page — Safiya Al Jabri" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Zain:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+             body, * {
+                 direction: ltr !important;
+                 text-align: left !important;
+             }
+
+             /* ============================
+        TOAST MESSAGE (Final Version)
+        ============================ */
+             .toast {
+                 position: fixed;
+                 bottom: 20px;
+                 right: 20px;
+                 background: linear-gradient(135deg, #cfe9ff, #ffffff);
+                 color: #003366;
+                 padding: 8px 14px;
+                 border-radius: 10px;
+                 font-size: 13px;
+                 font-weight: 500;
+                 opacity: 0;
+                 transform: translateY(20px);
+                 transition: opacity 0.3s ease, transform 0.3s ease;
+                 z-index: 9999;
+                 max-width: 180px;
+                 text-align: center;
+                 box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+                 border: 1px solid rgba(0, 102, 204, 0.2);
+             }
+
+                 .toast.show {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+
+
+             :root {
+                 --bg: #f7f8fb;
+                 --card: #ffffff;
+                 --muted: #6b7280;
+                 --accent: #0f4c81;
+                 --accent-2: #0aa3a3;
+                 --glass: rgba(255,255,255,0.7);
+             }
+
+             * {
+                 box-sizing: border-box
+             }
+
+             body {
+                 margin: 0;
+                 font-family: 'Zain', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+                 background: var(--bg);
+                 color: #0b1220;
+                 direction: rtl;
+                 -webkit-font-smoothing: antialiased;
+                 -moz-osx-font-smoothing: grayscale;
+                 line-height: 1.6;
+             }
+
+             a {
+                 color: var(--accent);
+                 text-decoration: none
+             }
+
+             header {
+                 background: linear-gradient(90deg, rgba(15,76,129,0.95), rgba(10,163,163,0.95));
+                 color: #fff;
+                 padding: 28px 20px;
+                 position: sticky;
+                 top: 0;
+                 z-index: 40;
+                 box-shadow: 0 6px 18px rgba(15,76,129,0.12);
+             }
+
+             .container {
+                 max-width: 1100px;
+                 margin: 0 auto;
+                 padding: 0 18px
+             }
+
+             .nav {
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+                 gap: 12px
+             }
+
+             .brand {
+                 display: flex;
+                 align-items: center;
+                 gap: 14px
+             }
+
+             .brand-logo {
+                 width: 52px;
+                 height: 52px;
+                 border-radius: 12px;
+                 background: rgba(255,255,255,0.12);
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 font-weight: 700
+             }
+
+             .brand h1 {
+                 font-size: 18px;
+                 margin: 0
+             }
+
+             .nav-links {
+                 display: flex;
+                 gap: 12px;
+                 align-items: center
+             }
+
+                 .nav-links a {
+                     color: rgba(255,255,255,0.95);
+                     padding: 8px 12px;
+                     border-radius: 8px;
+                     font-weight: 600
+                 }
+
+                     .nav-links a.cta {
+                         background: rgba(255,255,255,0.12)
+                     }
+
+             /* Hero */
+             .hero {
+                 padding: 48px 0 64px
+             }
+
+             .hero-grid {
+                 display: grid;
+                 grid-template-columns: 1fr 420px;
+                 gap: 28px;
+                 align-items: center
+             }
+
+             .hero-card {
+                 background: var(--card);
+                 border-radius: 14px;
+                 padding: 28px;
+                 box-shadow: 0 6px 30px rgba(12,23,40,0.06)
+             }
+
+             .intro h2 {
+                 margin: 0;
+                 font-size: 28px;
+                 color: var(--accent)
+             }
+
+             .intro p {
+                 color: var(--muted);
+                 margin: 12px 0 18px
+             }
+
+             .cta-row {
+                 display: flex;
+                 gap: 12px;
+                 flex-wrap: wrap
+             }
+
+             .btn {
+                 display: inline-block;
+                 padding: 10px 16px;
+                 border-radius: 10px;
+                 font-weight: 700
+             }
+
+                 .btn.primary {
+                     background: var(--accent);
+                     color: #fff
+                 }
+
+                 .btn.ghost {
+                     background: transparent;
+                     border: 2px solid var(--accent);
+                     color: var(--accent)
+                 }
+
+             .profile {
+                 display: flex;
+                 flex-direction: column;
+                 gap: 12px;
+                 align-items: center;
+                 text-align: center
+             }
+
+             .photo {
+                 width: 220px;
+                 height: 220px;
+                 border-radius: 14px;
+                 overflow: hidden;
+                 background-size: cover;
+                 background-position: center;
+                 border: 6px solid var(--glass)
+             }
+
+             .role {
+                 font-weight: 700;
+                 color: var(--accent)
+             }
+
+             .location {
+                 color: var(--muted);
+                 font-size: 14px
+             }
+
+             /* Sections */
+             section {
+                 padding: 40px 0
+             }
+
+             .section-head {
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-between;
+                 gap: 12px;
+                 margin-bottom: 18px
+             }
+
+                 .section-head h3 {
+                     margin: 0;
+                     font-size: 20px;
+                     color: var(--accent)
+                 }
+
+             .card {
+                 background: var(--card);
+                 border-radius: 12px;
+                 padding: 18px;
+                 box-shadow: 0 6px 18px rgba(12,23,40,0.04)
+             }
+
+             /* Skills */
+             .skills-grid {
+                 display: grid;
+                 grid-template-columns: repeat(3,1fr);
+                 gap: 12px
+             }
+
+             .skill {
+                 padding: 12px;
+                 border-radius: 10px;
+                 background: linear-gradient(180deg,#fff,#fbfdff)
+             }
+
+                 .skill h4 {
+                     margin: 0 0 8px
+                 }
+
+             .bar {
+                 height: 10px;
+                 background: #eef2f6;
+                 border-radius: 8px;
+                 overflow: hidden
+             }
+
+                 .bar > i {
+                     display: block;
+                     height: 100%;
+                     border-radius: 8px;
+                     background: linear-gradient(90deg,var(--accent),var(--accent-2));
+                 }
+
+             /* Projects */
+             .projects-grid {
+                 display: grid;
+                 grid-template-columns: repeat(2,1fr);
+                 gap: 12px
+             }
+
+             .project {
+                 position: relative;
+                 min-height: 140px;
+                 border-radius: 10px;
+                 overflow: hidden;
+                 background-size: cover;
+                 background-position: center
+             }
+
+                 .project .overlay {
+                     position: absolute;
+                     inset: 0;
+                     background: linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.12));
+                     display: flex;
+                     flex-direction: column;
+                     justify-content: flex-end;
+                     padding: 12px;
+                     color: #fff
+                 }
+
+             /* Contact */
+             .contact-grid {
+                 display: grid;
+                 grid-template-columns: 1fr 380px;
+                 gap: 18px
+             }
+
+             form .row {
+                 display: flex;
+                 gap: 8px
+             }
+
+             .field {
+                 margin-bottom: 10px
+             }
+
+             input, textarea, select {
+                 width: 100%;
+                 padding: 10px;
+                 border-radius: 8px;
+                 border: 1px solid #e6e9ef
+             }
+
+                 input:focus, textarea:focus {
+                     outline: 2px solid rgba(10,163,163,0.12);
+                     border-color: var(--accent)
+                 }
+
+             .socials {
+                 display: flex;
+                 gap: 8px
+             }
+
+             footer {
+                 padding: 18px 0;
+                 color: var(--muted);
+                 border-top: 1px solid #eef2f6
+             }
+
+             /* Responsive */
+             @media (max-width:900px) {
+                 .hero-grid {
+                     grid-template-columns: 1fr;
+                 }
+
+                 .projects-grid {
+                     grid-template-columns: 1fr
+                 }
+
+                 .skills-grid {
+                     grid-template-columns: repeat(2,1fr)
+                 }
+
+                 .contact-grid {
+                     grid-template-columns: 1fr
+                 }
+
+                 .nav-links {
+                     display: none
+                 }
+             }
+
+             @media (max-width:480px) {
+                 .skills-grid {
+                     grid-template-columns: 1fr
+                 }
+             }
+
+             .achievements {
+                 text-align: center;
+                 padding: 60px 20px;
+                 background-color: #faf8fc;
+                 position: relative;
+             }
+
+             .section-title {
+                 font-size: 2rem;
+                 color: #6b3fa0;
+                 margin-bottom: 10px;
+             }
+
+             .section-subtitle {
+                 color: #777;
+                 margin-bottom: 30px;
+             }
+
+             .carousel-container {
+                 position: relative;
+                 overflow: hidden;
+                 max-width: 900px;
+                 margin: 0 auto;
+                 border-radius: 16px;
+                 box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+             }
+
+             .carousel-track {
+                 display: flex;
+                 transition: transform 0.6s ease;
+             }
+
+             .achievement-slide {
+                 min-width: 100%;
+                 position: relative;
+             }
+
+                 .achievement-slide img {
+                     width: 100%;
+                     height: 400px; /* fixed frame */
+                     object-fit: contain; /* ensures full image is visible */
+                     background-color: #f6f4fa; /* soft background for empty areas */
+                     border-radius: 10px; /* smooth corners */
+                     transition: transform .3s ease;
+                 }
+
+                     .achievement-slide img:hover {
+                         transform: scale(1.02); /* simple hover interaction */
+                     }
+
+             .caption {
+                 position: relative !important;
+                 background: rgba(0,0,0,0.6);
+                 padding: 16px;
+                 color: white;
+                 text-align: center;
+                 margin-top: 12px;
+             }
+
+                 .caption h3 {
+                     margin: 0;
+                     font-size: 1.2rem;
+                     color: #ffd86b;
+                 }
+
+                 .caption a {
+                     color: #ffd86b;
+                     text-decoration: underline;
+                     font-weight: 500;
+                 }
+
+             .carousel-btn {
+                 position: absolute;
+                 top: 50%;
+                 transform: translateY(-50%);
+                 background: rgba(107,63,160,0.8);
+                 color: white;
+                 border: none;
+                 border-radius: 50%;
+                 width: 40px;
+                 height: 40px;
+                 cursor: pointer;
+                 font-size: 22px;
+                 transition: background 0.3s;
+             }
+
+                 .carousel-btn:hover {
+                     background: #6b3fa0;
+                 }
+
+                 .carousel-btn.prev {
+                     left: 10px;
+                 }
+
+                 .carousel-btn.next {
+                     right: 10px;
+                 }
+
+             .linkedin-post {
+                 background: #f8f9fa;
+                 padding: 60px 20px;
+                 text-align: center;
+             }
+
+                 .linkedin-post h2 {
+                     color: #0077b5;
+                     margin-bottom: 30px;
+                 }
+
+             .post-card {
+                 background: #fff;
+                 border-radius: 16px;
+                 padding: 20px;
+                 box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+                 max-width: 800px;
+                 margin: 0 auto;
+                 text-align: right;
+                 direction: rtl;
+             }
+
+             .post-header {
+                 display: flex;
+                 align-items: center;
+                 gap: 10px;
+                 margin-bottom: 15px;
+                 justify-content: flex-start;
+             }
+
+             .linkedin-icon {
+                 width: 28px;
+                 height: 28px;
+             }
+
+             .post-author {
+                 font-weight: bold;
+                 color: #333;
+             }
+
+             .post-date {
+                 color: #777;
+                 font-size: 0.9rem;
+                 margin-right: auto;
+             }
+
+             .post-image {
+                 width: 100%;
+                 border-radius: 12px;
+                 margin-bottom: 20px;
+             }
+
+             .post-content p {
+                 color: #333;
+                 line-height: 1.8;
+                 font-size: 1rem;
+                 white-space: pre-line;
+             }
+
+             .post-link {
+                 display: inline-block;
+                 margin-top: 12px;
+                 color: #0077b5;
+                 font-weight: bold;
+                 text-decoration: none;
+             }
+
+                 .post-link:hover {
+                     text-decoration: underline;
+                 }
+
+             .view-btn {
+                 margin-top: 10px;
+                 background: #0078d7;
+                 color: #fff;
+                 border: none;
+                 border-radius: 6px;
+                 padding: 6px 14px;
+                 cursor: pointer;
+                 font-size: 13px;
+                 transition: background 0.3s ease, transform 0.2s;
+             }
+
+                 .view-btn:hover {
+                     background: #005fa3;
+                     transform: scale(1.05);
+                 }
+
+                 .view-btn:active {
+                     background: #004f8a;
+                     transform: scale(0.98);
+                 }
+
+
+             .skills-section {
+                 padding: 40px 20px;
+             }
+
+             .skills-container {
+                 display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                 gap: 24px;
+                 margin-top: 20px;
+             }
+
+             .skills-group {
+                 background: var(--card-bg, #fff);
+                 border-radius: 16px;
+                 padding: 20px;
+                 box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                 transition: transform 0.3s ease;
+             }
+
+                 .skills-group:hover {
+                     transform: translateY(-5px);
+                 }
+
+                 .skills-group h4 {
+                     color: var(--accent, #0066cc);
+                     margin-bottom: 10px;
+                     font-size: 18px;
+                 }
+
+                 .skills-group ul {
+                     list-style: none;
+                     padding: 0;
+                     margin: 0;
+                 }
+
+                 .skills-group li {
+                     margin-bottom: 8px;
+                     color: var(--text, #333);
+                     font-size: 15px;
+                     padding-left: 10px;
+                     position: relative;
+                 }
+
+                     .skills-group li::before {
+                         content: "•";
+                         color: var(--accent, #0066cc);
+                         position: absolute;
+                         left: 0;
+                     }
+
+
+             .achievements-section {
+                 text-align: center;
+                 padding: 60px 0;
+                 background: #faf8fc;
+             }
+
+             .title {
+                 font-size: 2rem;
+                 color: #6b3fa0;
+                 margin-bottom: 5px;
+             }
+
+             .subtitle {
+                 color: #777;
+                 margin-bottom: 25px;
+             }
+
+             .achievements-grid {
+                 display: grid;
+                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                 gap: 22px;
+             }
+
+             .ach-card {
+                 background: #fff;
+                 border-radius: 16px;
+                 overflow: hidden;
+                 cursor: pointer;
+                 box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+                 transition: 0.35s ease;
+                 transform: translateY(0);
+                 animation: fadeInUp 0.7s ease both;
+             }
+
+                 .ach-card:hover {
+                     transform: translateY(-6px) scale(1.02);
+                 }
+
+                 .ach-card img {
+                     width: 100%;
+                     height: 180px;
+                     object-fit: cover;
+                 }
+
+             .ach-info {
+                 padding: 16px;
+                 text-align: right;
+             }
+
+                 .ach-info h3 {
+                     margin: 0 0 6px;
+                     color: #6b3fa0;
+                     font-size: 1.13rem;
+                 }
+
+                 .ach-info p {
+                     margin: 0 0 10px;
+                     color: #444;
+                     font-size: 0.93rem;
+                 }
+
+             .ach-btn {
+                 display: inline-block;
+                 background: #6b3fa0;
+                 padding: 8px 14px;
+                 border-radius: 8px;
+                 color: #fff;
+                 text-decoration: none;
+                 font-size: 0.85rem;
+             }
+
+                 .ach-btn:hover {
+                     background: #563087;
+                 }
+
+             /* More button */
+             .more-btn-wrap {
+                 margin-top: 30px;
+             }
+
+             .more-btn {
+                 background: #6b3fa0;
+                 color: #fff;
+                 padding: 13px 28px;
+                 border-radius: 12px;
+                 text-decoration: none;
+                 font-size: 1rem;
+                 transition: 0.3s;
+             }
+
+                 .more-btn:hover {
+                     background: #563087;
+                 }
+
+             /* Popup */
+             .popup {
+                 display: none;
+                 position: fixed;
+                 z-index: 2000;
+                 padding-top: 60px;
+                 left: 0;
+                 top: 0;
+                 width: 100%;
+                 height: 100%;
+                 background: rgba(0,0,0,0.8);
+                 text-align: center;
+             }
+
+             .popup-content {
+                 margin: auto;
+                 width: 90%;
+                 max-width: 600px;
+                 border-radius: 12px;
+                 animation: zoomIn 0.4s ease;
+             }
+
+             .close {
+                 position: absolute;
+                 top: 20px;
+                 right: 30px;
+                 color: #fff;
+                 font-size: 40px;
+                 cursor: pointer;
+             }
+
+             /* Animations */
+             @keyframes fadeInUp {
+                 from {
+                     opacity: 0;
+                     transform: translateY(20px);
+                 }
+
+                 to {
+                     opacity: 1;
+                     transform: translateY(0);
+                 }
+             }
+
+             @keyframes zoomIn {
+                 from {
+                     transform: scale(0.7);
+                     opacity: 0;
+                 }
+
+                 to {
+                     transform: scale(1);
+                     opacity: 1;
+                 }
+             }
+    </style>
+</head>
+
+
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="photo" style="background-image:url('images/4.jpg'); width:100px; height:100px; border-radius:50%; overflow:hidden; background-size:cover; background-position:center; border:3px solid rgba(255,255,255,0.7); margin:auto;"></div>
+                <div>
+                    <h1 style="margin:0;font-size:18px;color:#fff">Safiya Al-Jabri</h1>
+                    <div style="font-size:13px;color:rgba(255,255,255,0.9)">Software Engineer • Certified Trainer</div>
+
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">My Skills</a>
+                <a href="#projects">My Projects</a>
+                <a href="#certs">My Certificates</a>
+                <a href="#contact" class="cta">Contact Me</a>
+
+
+                <!-- 🌐 زر تغيير اللغة -->
+                <button onclick="window.location.href='index.html'"
+                        style="
+    background:#fff;
+    border:1px solid rgba(255,255,255,0.5);
+    color:#1a4fa3;
+    padding:6px 12px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+  "
+                        onmouseover="this.style.background='rgba(255,255,255,0.85)'"
+                        onmouseout="this.style.background='#fff'">
+                    عربي
+                </button>
+
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <div class="intro">
+                        <h2>Hello — I’m Safiya Al-Jabri</h2>
+
+                        <p>
+                            This website serves as a personal space that brings together
+                            my <strong>knowledge</strong> and <strong>professional experience</strong>.
+                            Here, I share my journey across the fields of
+                            <strong>technology and career development</strong>.
+                        </p>
+
+                        <p>
+                            My goal is to contribute to <strong>enriching the knowledge landscape</strong>
+                            while providing content that reflects
+                            <strong>my skills and continuous passion for learning and growth</strong>.
+                            I also aim to showcase my achievements and qualifications in a professional manner
+                            that supports my pursuit of a <strong>career opportunity</strong> aligned with my future ambitions.
+                        </p>
+
+                        <div class="cta-row">
+                            <a class="btn primary" href="/Resume/SafiaAljabriResume2024.pdf" download>Download Resume</a>
+                            <a class="btn ghost" href="#contact">Book a Session / Contact</a>
+                            <a class="btn" href="#projects">Portfolio</a>
+                        </div>
+                    </div>
+
+                    <hr style="margin:18px 0;border:none;border-top:1px solid #f0f3f6">
+                </div>
+
+                <aside class="profile">
+                    <div class="photo" style="background-image:url('images/safia2025.jpeg')"></div>
+
+                    <div>
+                        <div class="role">Software Engineer • Certified Trainer</div>
+                        <div class="location">Sultanate of Oman</div>
+                    </div>
+
+                    <div class="card" style="width:100%;text-align:center">
+                        <div style="margin-bottom:8px;font-weight:700">
+                            Book a session or send a job offer
+                        </div>
+                        <div style="display:flex;gap:8px;justify-content:center">
+                            <a class="btn primary" href="#contact">Book Now</a>
+                            <a class="btn" href="https://wa.me/96879176016" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-head">
+                <h3>About Me</h3>
+                <div style="color:var(--muted);font-size:14px">A brief story of my career path and values</div>
+            </div>
+
+            <div class="card">
+                <p>
+                    <strong>Safiya Al-Jabri</strong> is a Software Engineer with a self-made journey in the fields of technology and entrepreneurship.
+                    I enjoy transforming ideas into real digital products and providing technical consultations that help individuals and organizations grow with confidence and sustainability.
+                </p>
+
+                <p>
+                    I am a certified trainer by the
+                    <strong>Ministry of Higher Education, Research and Innovation</strong>,
+                    and I have delivered workshops in programming and tech entrepreneurship in collaboration with multiple training centers.
+                </p>
+
+                <p>
+                    I believe that knowledge is only complete when shared, and that empowering people with skills is the true investment in the future of technology.
+                </p>
+
+                <p>
+                    I am currently seeking my <strong>next career opportunity</strong> within a work environment that values creativity and combines technical development with meaningful impact —
+                    allowing me to continue my passion for building software solutions and creating real value.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="skills-section">
+            <div class="section-head">
+                <h3>Skills</h3>
+                <div style="color:var(--muted);font-size:14px">A blend of technical, leadership, and soft skills</div>
+            </div>
+
+            <div class="skills-container">
+
+                <!-- Technical Skills -->
+                <div class="skills-group">
+                    <h4>Technical Skills</h4>
+                    <ul>
+                        <li>Frontend Development: HTML, CSS, JavaScript</li>
+                        <li>Backend Development: C#, .NET, PHP</li>
+                        <li>Database Management: SQL Server, MySQL</li>
+                        <li>Web Frameworks: WordPress, Laravel, ASP.NET</li>
+                        <li>Development Tools: Visual Studio, Visual Studio Code</li>
+                        <li>Version Control Systems: Git, GitHub</li>
+                        <li>Strong interest in AI technologies and Prompt Engineering</li>
+                    </ul>
+                </div>
+
+                <!-- Leadership Skills -->
+                <div class="skills-group">
+                    <h4>Leadership Skills</h4>
+                    <ul>
+                        <li>Team leadership and performance motivation</li>
+                        <li>Time management and task distribution</li>
+                        <li>Problem-solving and decision-making</li>
+                        <li>Strategic planning and project management</li>
+                        <li>Critical and creative thinking</li>
+                        <li>Persuasion and negotiation skills</li>
+                        <li>Workshop facilitation and public speaking</li>
+                    </ul>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skills-group">
+                    <h4>Soft Skills</h4>
+                    <ul>
+                        <li>Effective communication and relationship building</li>
+                        <li>Adaptability and flexibility</li>
+                        <li>Teamwork and collaboration</li>
+                        <li>Emotional intelligence and stress management</li>
+                        <li>Continuous learning and self-development</li>
+                        <li>Analytical thinking and logical reasoning</li>
+                        <li>Attention to detail and accuracy</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-head">
+                <h3>My Projects (Studio)</h3>
+                <div style="color:var(--muted);font-size:14px">Selected portfolio highlights</div>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project" style="background-image:url('images/project1.jpg')">
+                    <div class="overlay">
+                        <strong>Integrated Laboratory Management System (LIMS)</strong>
+                        <strong>🏆 Awarded Best Graduation Project – 2017</strong>
+                        <div style="font-size:13px">
+                            A smart system developed for Sohar Aluminium laboratories,<br>
+                            enabling automated tracking of samples and test results,<br>
+                            improving operational efficiency with precision and clarity.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" style="background-image:url('images/project1.jpg')">
+                    <div class="overlay">
+                        <strong>Bousala Platform for People with Disabilities</strong>
+                        <div style="font-size:13px">
+                            A digital platform built for UTAS Al-Musannah,<br>
+                            empowering entrepreneurs with disabilities through smart services<br>
+                            that support their business initiatives and innovative projects.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" style="background-image:url('images/project1.jpg')">
+                    <div class="overlay">
+                        <strong>Websites for SMEs</strong>
+                        <div style="font-size:13px">
+                            Development of interactive websites for small and medium enterprises,<br>
+                            focusing on brand identity, user-friendly design,<br>
+                            and seamless integration of digital services.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project" style="background-image:url('images/project1.jpg')">
+                    <div class="overlay">
+                        <strong>Personal & Business Websites</strong>
+                        <div style="font-size:13px">Responsive interfaces with minimal clean design</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Certificates -->
+        <section id="certs">
+            <div class="section-head">
+                <h3>Certificates & Accreditations</h3>
+                <div style="color:var(--muted);font-size:14px">Official qualifications and selected courses</div>
+            </div>
+
+
+            <div class="carousel-container" style="position:relative;overflow:hidden;">
+                <div class="carousel-track" style="
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      padding:10px;
+      scroll-behavior:auto;
+    ">
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Bachelor’s Degree in Software Engineering</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Ministry of Higher Education, Research & Innovation — 2017
+                        </div>
+                        <button class="view-btn" data-img="images/SafiaBtec.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Certified Trainer (TOT)</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Ministry of Higher Education, Research & Innovation — 2023
+                        </div>
+                        <button class="view-btn" data-img="images/SAFIA TOT.jpeg">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Cisco CCNA — Network Fundamentals</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Cisco Networking Academy — 2014
+                        </div>
+                        <button class="view-btn" data-img="images/cisco.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Cisco IT Essentials Certification</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Cisco Networking Academy — 2013
+                        </div>
+                        <button class="view-btn" data-img="images/Cisco2.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Recommendation Letters</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            University of Technology and Applied Sciences – Shinas, 2025
+                        </div>
+                        <a class="view-btn" href="/Resume/referenceLetters.pdf">👁 View</a>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Training Certificate</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Vale Iron Pellets Company — Automation Department — 2017
+                        </div>
+                        <button class="view-btn" data-img="images/vale.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Competent Communicator</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            Toastmasters International — 2018
+                        </div>
+                        <button class="view-btn" data-img="images/Tostmaster.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>BP Young Leaders Programme</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            BP in collaboration with Oman Sail & Ministry of Oil and Gas — 2017
+                        </div>
+                        <button class="view-btn" data-img="images/bp.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Certificate of Recognition – Quiz Bee</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            University of Technology & Applied Sciences – Shinas — IT Department — 2015
+                        </div>
+                        <button class="view-btn" data-img="images/qizbee.png">👁 View</button>
+                    </div>
+
+                    <div class="card" style="min-width:280px;flex-shrink:0;">
+                        <strong>Linux Workshop Participation Certificate</strong>
+                        <div style="color:var(--muted);font-size:14px;margin-top:6px">
+                            College of Applied Sciences – Sohar — IT Department — 2017
+                        </div>
+                        <button class="view-btn" data-img="images/sohar.png">👁 View</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="imgModal" style="
+    display:none;
+    position:fixed;
+    top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+  ">
+                <img id="modalImage" src="" alt="الشهادة" style="
+      max-width:90%;
+      max-height:90%;
+      border-radius:10px;
+      object-fit:contain;
+    ">
+            </div>
+
+            <script>
+      // فتح الصورة
+      document.querySelectorAll('.view-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+              const imgSrc = btn.getAttribute('data-img');
+              const modal = document.getElementById('imgModal');
+              const modalImg = document.getElementById('modalImage');
+              modalImg.src = imgSrc;
+              modal.style.display = 'flex';
+          });
+      });
+
+      // إغلاق الصورة عند الضغط بالخارج
+      document.getElementById('imgModal').addEventListener('click', () => {
+          document.getElementById('imgModal').style.display = 'none';
+      });
+
+      // منع أي تمرير تلقائي عند التحميل
+      window.addEventListener("load", () => {
+          const track = document.querySelector('.carousel-track');
+          if (track) track.scrollLeft = 0;
+      });
+            </script>
+        </section>
+
+        <!-- achievementss -->
+
+        <section id="achievements" class="achievements-section">
+            <div class="section-head">
+                <h3>Achievements & Activities</h3>
+                <div style="color:var(--muted);font-size:14px">Highlighted workshops and contributions</div>
+            </div>
+
+            <div class="container">
+                <div class="achievements-grid">
+
+                    <!-- 1 -->
+                    <div class="ach-card" onclick="openPopup('images/Tabook.jpeg')">
+                        <img src="images/Tabook.jpeg" alt="">
+                        <div class="ach-info">
+                            <h3>Technology & Educational Technologies Workshop</h3>
+                            <p>Tabouk Girls School — November 2024</p>
+                            <a href="https://1drv.ms/i/c/22d54c553ef72b31/Eb5DlbMqO-RFuG-Uf6xwoyIBcw_41OWBgJshJa820iSLpw?e=pw5Ka5"
+                               target="_blank" class="btn primary">View Photos</a>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="ach-card" onclick="openPopup('images/UTAS.jpeg')">
+                        <img src="images/UTAS.jpeg" alt="">
+                        <div class="ach-info">
+                            <h3>Crossing the Bridge Workshop</h3>
+                            <p>UTAS Shinas — February 2025</p>
+                            <a href="https://1drv.ms/i/c/22d54c553ef72b31/Eb1NWUgZaJxJsEgAu21BLtIBdkNee3yMO9-XIC1Ez35dpg?e=Vxguu2"
+                               target="_blank" class="btn primary">View Photos</a>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="ach-card" onclick="openPopup('images/bat.jpeg')">
+                        <img src="images/bat.jpeg" alt="">
+                        <div class="ach-info">
+                            <h3>Al Batinah International Film Festival</h3>
+                            <p>Oman Film Society — 2022</p>
+                            <a href="https://1drv.ms/i/c/22d54c553ef72b31/Eb1NWUgZaJxJsEgAu21BLtIBdkNee3yMO9-XIC1Ez35dpg?e=Vxguu2"
+                               target="_blank" class="btn primary">View Photos</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="more-btn-wrap">
+                    <a href="https://www.instagram.com/coach_safia_aljabri24?igsh=MXVoYnNnZDFwaTAwaw=="
+                       target="_blank" class="btn primary">More…</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Popup Modal -->
+        <div id="imgPopup" class="popup">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img id="popupImg" class="popup-content">
+        </div>
+
+
+        <!-- MY COMPANY -->
+        <section id="company">
+            <div class="section-head">
+                <h3>About My Company</h3>
+                <div style="color:var(--muted);font-size:14px">Innovation • Technology • Impact</div>
+            </div>
+
+            <div class="card" style="text-align:left;line-height:1.9">
+                <p>
+                    <strong>Ibhar Modern Technology</strong> is a pioneering company I founded at the beginning of <strong>2021</strong> and continued developing until <strong>2024</strong>.
+                    The company specialized in delivering innovative digital solutions and technical training programs designed to empower individuals and organizations in their digital transformation journey.
+                </p>
+
+                <p>
+                    Through the creative <strong>TED CODE TEAM</strong>, we built an inspiring work environment driven by passion, innovation, and collaboration—delivering exceptional projects that reflect excellence within the tech field.
+                </p>
+
+                <p>
+                    To explore more about the company, view achievements, or read client testimonials, you may visit our Instagram account or browse the available media below:
+                </p>
+
+                <div style="margin-top:15px; display:flex; gap:10px; flex-wrap:wrap;">
+
+                    <!-- Instagram Button -->
+                    <a href="https://www.instagram.com/tedcodeteam/?hl=en" target="_blank"
+                       style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#007bff,#66ccff);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;transition:0.3s;">
+                        <img src="images/insta-icon.jpg" alt="Instagram" style="width:20px;height:20px;">
+                        TED CODE TEAM
+                    </a>
+
+                    <!-- Client Testimonials Button -->
+                    <button id="openPdfBtn"
+                            style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00b894,#55efc4);color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:0.3s;">
+                        💬 Client Testimonials
+                    </button>
+
+                    <!-- PDF Modal -->
+                    <div id="pdfModal" style="
+        display:none;
+        position:fixed;
+        top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.8);
+        justify-content:center;
+        align-items:center;
+        z-index:9999;
+      ">
+                        <div style="position:relative;width:90%;max-width:800px;height:90%;background:#fff;border-radius:10px;overflow:hidden;">
+                            <button id="closePdfBtn" style="
+            position:absolute;
+            top:10px;right:10px;
+            background:#ff4757;
+            border:none;
+            color:#fff;
+            font-size:16px;
+            padding:5px 10px;
+            border-radius:5px;
+            cursor:pointer;
+          ">
+                                ✕ Close
+                            </button>
+
+                            <iframe src="Resume/clients-testimonials.pdf" style="width:100%;height:100%;border:none;"></iframe>
+                        </div>
+                    </div>
+
+                    <script>
+          document.getElementById("openPdfBtn").addEventListener("click", () => {
+              document.getElementById("pdfModal").style.display = "flex";
+          });
+
+          document.getElementById("closePdfBtn").addEventListener("click", () => {
+              document.getElementById("pdfModal").style.display = "none";
+          });
+                    </script>
+
+                    <!-- Video Button -->
+                    <button id="openVideoBtn"
+                            style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:#fff;padding:10px 18px;border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:0.3s;">
+                        🎥 Watch Video
+                    </button>
+
+                    <!-- Video Modal -->
+                    <div id="videoModal" style="
+        display:none;
+        position:fixed;
+        top:0;left:0;width:100%;height:100%;
+        background:rgba(0,0,0,0.8);
+        justify-content:center;
+        align-items:center;
+        z-index:9999;
+      ">
+                        <div style="position:relative;width:90%;max-width:800px;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden;">
+                            <button id="closeVideoBtn" style="
+            position:absolute;
+            top:10px;right:10px;
+            background:#ff4757;
+            border:none;
+            color:#fff;
+            font-size:16px;
+            padding:5px 10px;
+            border-radius:5px;
+            cursor:pointer;
+            z-index:10;
+          ">
+                                ✕ Close
+                            </button>
+
+                            <video id="videoPlayer" style="width:100%;height:100%;" controls>
+                                <source src="vids/tedvid.mp4" type="video/mp4">
+                                Your browser does not support video playback.
+                            </video>
+                        </div>
+                    </div>
+
+                    <script>
+          const openVideoBtn = document.getElementById("openVideoBtn");
+          const closeVideoBtn = document.getElementById("closeVideoBtn");
+          const videoModal = document.getElementById("videoModal");
+          const videoPlayer = document.getElementById("videoPlayer");
+
+          openVideoBtn.addEventListener("click", () => {
+              videoModal.style.display = "flex";
+              videoPlayer.play();
+          });
+
+          closeVideoBtn.addEventListener("click", () => {
+              videoPlayer.pause();
+              videoModal.style.display = "none";
+          });
+
+          videoModal.addEventListener("click", e => {
+              if (e.target === videoModal) {
+                  videoPlayer.pause();
+                  videoModal.style.display = "none";
+              }
+          });
+                    </script>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-head">
+                <h3>Contact Me</h3>
+                <div style="color:var(--muted);font-size:14px">Book a session or send a job offer</div>
+            </div>
+
+            <div class="contact-grid">
+                <div>
+                    <div class="card">
+                        <h4 style="margin-top:0">Contact Information</h4>
+                        <p style="color:var(--muted);margin-bottom:8px">Email: <strong>safiaaljabri91@hotmail.com</strong></p>
+                        <p style="color:var(--muted);margin-bottom:8px">WhatsApp: <a href="https://wa.me/96609659" target="_blank">+968 96609659</a></p>
+                        <div class="socials">
+                            <a href="https://github.com/EngSafiaAljabri" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/safia-aljabri/" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com/coach_safia_aljabri24" target="_blank">Instagram</a>
+                            <a href="https://profile.tawteen.om/profile/ChZVZHc3am1RTENnZUM1dnpmVFFFcWZREgVsb2NhbA" target="_blank">Tawteen</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px" class="card">
+                        <h4 style="margin-top:0">Quick Booking</h4>
+                        <p style="color:var(--muted);font-size:14px">Join my schedule via Koalendar Bookings or send your request via WhatsApp</p>
+                        <div style="display:flex;gap:8px;margin-top:8px">
+                            <a class="btn primary" href="https://koalendar.com/e/meet-with-safia-aljabri" target="_blank">Koalendar Bookings</a>
+                            <a class="btn" href="https://wa.me/96896609659" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card">
+                        <form id="contactForm" onsubmit="sendEmail(event)">
+                            <input type="text" name="hp_name" id="hp_name" style="display:none" autocomplete="off">
+
+                            <div class="field">
+                                <label>Full Name</label>
+                                <input type="text" name="from_name" placeholder="Full Name" required>
+                            </div>
+
+                            <div class="field">
+                                <label>Email Address</label>
+                                <input type="email" name="from_email" placeholder="your@mail.com" required>
+                            </div>
+
+                            <div class="field">
+                                <label>Request Type</label>
+                                <select name="request_type">
+                                    <option>Job Offer</option>
+                                    <option>Book a Session</option>
+                                    <option>Course Request</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>Message</label>
+                                <textarea name="message" rows="6" placeholder="Write your message here..." required></textarea>
+                            </div>
+
+                            <input type="hidden" name="send_date">
+                            <input type="hidden" name="user_location">
+                            <input type="hidden" name="page_path" value="contact_page">
+
+                            <div style="text-align:left;margin-top:8px">
+                                <button id="submitBtn" type="submit" class="btn primary">Send Message</button>
+                            </div>
+                        </form>
+
+                        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+                        <script>
+            function showToast(message, type = "info") {
+                const toast = document.createElement("div");
+                toast.className = `toast ${type} show`;
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                    setTimeout(() => toast.remove(), 300);
+                }, 2500);
+            }
+
+            (function () {
+                emailjs.init({ publicKey: "6ikq4SdCVXz0h9m_I" });
+            })();
+
+            async function sendEmail(event) {
+                event.preventDefault();
+
+                const form = document.getElementById("contactForm");
+                const submitBtn = document.getElementById("submitBtn");
+
+                if (form.hp_name.value.trim() !== "") {
+                    showToast("🚫 Spam attempt detected", "error");
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = "⏳ Sending...";
+
+                form.send_date.value = new Date().toLocaleString("en-US");
+                form.user_location.value = window.location.hostname + " — " + navigator.language;
+
+                try {
+                    await emailjs.sendForm("service_o69jtc2", "template_bqd7zd5", form);
+                    showToast("✅ Sent Successfully", "success");
+                    form.reset();
+                } catch (error) {
+                    console.error("EmailJS Error:", error);
+                    showToast("❌ An error occurred", "error");
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Send Message";
+                }
+            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <div style="color:var(--muted)">© <span id="yr"></span> Safia Aljabri — All Rights Reserved</div>
+                <div style="color:var(--muted);font-size:14px">Designed and built with passion</div>
+            </div>
+        </footer>
+
+
+    </main>
+    <script>
+         function openPopup(imgSrc) {
+             document.getElementById("imgPopup").style.display = "block";
+             document.getElementById("popupImg").src = imgSrc;
+         }
+
+         function closePopup() {
+             document.getElementById("imgPopup").style.display = "none";
+         }
+    </script>
+
+
+    <script>
+         function showToast() {
+             const toast = document.getElementById("copyToast");
+             toast.classList.add("show");
+
+             setTimeout(() => {
+                 toast.classList.remove("show");
+             }, 2000);
+         }
+
+         // جعل أي زر يحمل "copy-btn" يشغّل التوست + ينسخ النص
+         document.querySelectorAll(".copy-btn").forEach(btn => {
+             btn.addEventListener("click", () => {
+                 navigator.clipboard.writeText(btn.getAttribute("data-copy"));
+                 showToast();
+             });
+         });
+    </script>
+
+</body>
+
+
+</html>
