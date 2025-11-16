@@ -766,6 +766,58 @@
                      opacity: 1;
                  }
              }
+        /* زر المنيو للجوال */
+.mobile-menu-btn {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* القائمة الجانبية */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background: rgba(10,50,120,0.97);
+    backdrop-filter: blur(4px);
+    padding: 20px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 9999;
+}
+
+.side-menu a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.side-menu .close-btn {
+    font-size: 26px;
+    color: #fff;
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* إظهار زر المنيو وإخفاء الروابط في الجوال */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
     </style>
 </head>
 
@@ -774,45 +826,52 @@
 <body>
 
     <header>
-        <div class="container nav">
-            <div class="brand">
-                <div class="photo" style="background-image:url('images/4.jpg'); width:100px; height:100px; border-radius:50%; overflow:hidden; background-size:cover; background-position:center; border:3px solid rgba(255,255,255,0.7); margin:auto;"></div>
-                <div>
-                    <h1 style="margin:0;font-size:18px;color:#fff">Safiya Al-Jabri</h1>
-                    <div style="font-size:13px;color:rgba(255,255,255,0.9)">Software Engineer • Certified Trainer</div>
-
-                </div>
+    <div class="container nav">
+        <div class="brand">
+            <div class="photo" style="background-image:url('images/4.jpg'); width:100px; height:100px; border-radius:50%; overflow:hidden; background-size:cover; background-position:center; border:3px solid rgba(255,255,255,0.7); margin:auto;"></div>
+            <div>
+                <h1 style="margin:0;font-size:18px;color:#fff">Safiya Al-Jabri</h1>
+                <div style="font-size:13px;color:rgba(255,255,255,0.9)">Software Engineer • Certified Trainer</div>
             </div>
-
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">My Skills</a>
-                <a href="#projects">My Projects</a>
-                <a href="#certs">My Certificates</a>
-                <a href="#contact" class="cta">Contact Me</a>
-
-
-                <!-- 🌐 زر تغيير اللغة -->
-                <button onclick="window.location.href='index.html'"
-                        style="
-    background:#fff;
-    border:1px solid rgba(255,255,255,0.5);
-    color:#1a4fa3;
-    padding:6px 12px;
-    border-radius:8px;
-    font-size:13px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-  "
-                        onmouseover="this.style.background='rgba(255,255,255,0.85)'"
-                        onmouseout="this.style.background='#fff'">
-                    عربي
-                </button>
-
-            </nav>
         </div>
-    </header>
+
+        <!-- Mobile menu button -->
+        <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+
+        <nav class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">My Skills</a>
+            <a href="#projects">My Projects</a>
+            <a href="#certs">My Certificates</a>
+            <a href="#contact" class="cta">Contact Me</a>
+
+            <!-- Language Switch -->
+            <button onclick="window.location.href='index.html'"
+                style="background:#fff;border:1px solid rgba(255,255,255,0.5);color:#1a4fa3;
+                padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">
+                عربي
+            </button>
+        </nav>
+    </div>
+</header>
+
+<!-- Side menu for mobile -->
+<div id="sideMenu" class="side-menu">
+    <div class="close-btn" onclick="toggleMenu()">✖</div>
+
+    <a href="#about">About</a>
+    <a href="#skills">My Skills</a>
+    <a href="#projects">My Projects</a>
+    <a href="#certs">My Certificates</a>
+    <a href="#contact">Contact Me</a>
+
+    <button onclick="window.location.href='index.html'"
+        style="margin-top:10px;background:#1a4fa3;border:none;color:#fff;
+        padding:8px 16px;border-radius:8px;font-size:14px;cursor:pointer;width:100%">
+        عربي
+    </button>
+</div>
+
 
     <main class="container">
         <!-- Hero -->
@@ -1515,8 +1574,15 @@
              });
          });
     </script>
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("sideMenu");
+    menu.style.right = menu.style.right === "0px" ? "-260px" : "0px";
+}
+</script>
 
 </body>
+
 
 
 </html>
