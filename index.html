@@ -1503,7 +1503,52 @@
     }
                         </script>
 
+ <script>
+        // تعطيل F12 و Ctrl+U
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12" || (e.ctrlKey && (e.key === "u" || e.key === "U"))) {
+                e.preventDefault();
+            }
+        });
 
+        // تعطيل الزر الأيمن
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // كشف فتح DevTools
+        let devtools = { open: false };
+        const threshold = 160;
+
+        const element = new Image();
+        Object.defineProperty(element, 'id', {
+            get: function () {
+                devtools.open = true;
+                alert('تم كشف فتح أدوات المطورين!');
+                window.location.href = 'about:blank'; // أو أي صفحة أخرى
+            },
+        });
+
+        setInterval(function() {
+            const start = performance.now();
+            debugger;
+            const end = performance.now();
+            if (end - start > threshold) {
+                devtools.open = true;
+                alert('تم كشف فتح أدوات المطورين!');
+                window.location.href = 'about:blank'; // أو أي صفحة أخرى
+            }
+        }, 1000);
+    </script>
+      <script>
+        // مثال على تشويش شفرة JavaScript
+        var a = 2;
+        var b = 3;
+        var c = a + b;
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('نتيجة العملية: ' + c);
+        });
+    </script>
 
                     </div>
                 </div>
@@ -1561,6 +1606,7 @@ function toggleMenu() {
 
 
 </html>>
+
 
 
 
