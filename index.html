@@ -1592,12 +1592,26 @@ function toggleMenu() {
     menu.style.right = menu.style.right === "0px" ? "-260px" : "0px";
 }
 </script>
+<script>
+// دالة إغلاق القائمة
+function closeMenu() {
+    document.getElementById("sideMenu").style.right = "-260px";
+}
+
+// إغلاق القائمة عند الضغط على أي رابط داخلها
+document.querySelectorAll('#sideMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeMenu();
+    });
+});
+</script>
 
 </body>
 
 
 
 </html>>
+
 
 
 
