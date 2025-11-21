@@ -817,6 +817,73 @@
         display: block;
     }
 }
+/* حذف تأثير body حتى ما يخرب تصميم الموقع */
+.slider-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+/* تأثير التلاشي على الأطراف */
+.slider::before,
+.slider::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    z-index: 2;
+    background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+/* Slider container */
+.slider {
+    background: white;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+    height: 100px;
+    width: 960px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Animation */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 6)); /* نصف عدد الصور */
+    }
+}
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 12); /* 6 صور أصلية + 6 مكررة */
+    animation: scroll 40s linear infinite;
+}
+
+/* Each slide */
+.slide {
+    width: 250px;
+    height: 100px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* حتى تناسب أي حجم صورة */
+}
 
     </style>
 </head>
@@ -1413,6 +1480,44 @@
                 </div>
             </div>
         </section>
+<!-- MY ComClints -->
+<section id="ComClints">
+    <div class="section-head">
+        <h3>Clients Who Trusted Us</h3>
+        <div style="color:var(--muted);font-size:14px">Commitment • Quality • Professionalism</div>
+    </div>
+    <div class="slider-wrapper">
+        <div class="slider">
+            <div class="slide-track">
+
+                <!-- Original Images -->
+                <div class="slide"><img src="images/2.png"></div>
+                <div class="slide"><img src="images/1.png"></div>
+                <div class="slide"><img src="images/3.png"></div>
+                <div class="slide"><img src="images/5.png"></div>
+                <div class="slide"><img src="images/6.png"></div>
+                <div class="slide"><img src="images/digital_diffusion___logo.jpg"></div>
+
+                <!-- Second repetition (needed for smooth animation) -->
+                <div class="slide"><img src="images/2.png"></div>
+                <div class="slide"><img src="images/1.png"></div>
+                <div class="slide"><img src="images/3.png"></div>
+                <div class="slide"><img src="images/5.png"></div>
+                <div class="slide"><img src="images/6.png"></div>
+                <div class="slide"><img src="images/digital_diffusion___logo.jpg"></div>
+
+                <!-- Third repetition (needed for smooth animation) -->
+                <div class="slide"><img src="images/2.png"></div>
+                <div class="slide"><img src="images/1.png"></div>
+                <div class="slide"><img src="images/3.png"></div>
+                <div class="slide"><img src="images/5.png"></div>
+                <div class="slide"><img src="images/6.png"></div>
+                <div class="slide"><img src="images/digital_diffusion___logo.jpg"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- Contact -->
         <section id="contact">
@@ -1645,6 +1750,7 @@ document.querySelectorAll('#sideMenu a').forEach(link => {
 
 
 </html>
+
 
 
 
