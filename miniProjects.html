@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -11,7 +11,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Zain:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Zain:wght@300;400;700&display=swap"
+          rel="stylesheet">
 
     <style>
         /* ============================
@@ -42,14 +43,13 @@
                 transform: translateY(0);
             }
 
-
         :root {
             --bg: #f7f8fb;
             --card: #ffffff;
             --muted: #6b7280;
-            --accent: #0f4c81; /* deep navy */
-            --accent-2: #0aa3a3; /* teal touch */
-            --glass: rgba(255,255,255,0.7);
+            --accent: #0f4c81;
+            --accent-2: #0aa3a3;
+            --glass: rgba(255, 255, 255, 0.7);
         }
 
         * {
@@ -73,13 +73,13 @@
         }
 
         header {
-            background: linear-gradient(90deg, rgba(15,76,129,0.95), rgba(10,163,163,0.95));
+            background: linear-gradient(90deg, rgba(15, 76, 129, 0.95), rgba(10, 163, 163, 0.95));
             color: #fff;
             padding: 28px 20px;
             position: sticky;
             top: 0;
             z-index: 40;
-            box-shadow: 0 6px 18px rgba(15,76,129,0.12);
+            box-shadow: 0 6px 18px rgba(15, 76, 129, 0.12);
         }
 
         .container {
@@ -105,7 +105,7 @@
             width: 52px;
             height: 52px;
             border-radius: 12px;
-            background: rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -124,14 +124,14 @@
         }
 
             .nav-links a {
-                color: rgba(255,255,255,0.95);
+                color: rgba(255, 255, 255, 0.95);
                 padding: 8px 12px;
                 border-radius: 8px;
                 font-weight: 600
             }
 
                 .nav-links a.cta {
-                    background: rgba(255,255,255,0.12)
+                    background: rgba(255, 255, 255, 0.12)
                 }
 
         /* Hero */
@@ -139,726 +139,8 @@
             padding: 48px 0 64px
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 28px;
-            align-items: center
-        }
-
-        .hero-card {
-            background: var(--card);
-            border-radius: 14px;
-            padding: 28px;
-            box-shadow: 0 6px 30px rgba(12,23,40,0.06)
-        }
-
-        .intro h2 {
-            margin: 0;
-            font-size: 28px;
-            color: var(--accent)
-        }
-
-        .intro p {
-            color: var(--muted);
-            margin: 12px 0 18px
-        }
-
-        .cta-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-weight: 700
-        }
-
-            .btn.primary {
-                background: var(--accent);
-                color: #fff
-            }
-
-            .btn.ghost {
-                background: transparent;
-                border: 2px solid var(--accent);
-                color: var(--accent)
-            }
-
-        .profile {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-            text-align: center
-        }
-
-        .photo {
-            width: 220px;
-            height: 220px;
-            border-radius: 14px;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            border: 6px solid var(--glass)
-        }
-
-        .role {
-            font-weight: 700;
-            color: var(--accent)
-        }
-
-        .location {
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        /* Sections */
-        section {
-            padding: 40px 0
-        }
-
-        .section-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 18px
-        }
-
-            .section-head h3 {
-                margin: 0;
-                font-size: 20px;
-                color: var(--accent)
-            }
-
-        .card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 18px;
-            box-shadow: 0 6px 18px rgba(12,23,40,0.04)
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 12px
-        }
-
-        .skill {
-            padding: 12px;
-            border-radius: 10px;
-            background: linear-gradient(180deg,#fff,#fbfdff)
-        }
-
-            .skill h4 {
-                margin: 0 0 8px
-            }
-
-        .bar {
-            height: 10px;
-            background: #eef2f6;
-            border-radius: 8px;
-            overflow: hidden
-        }
-
-            .bar > i {
-                display: block;
-                height: 100%;
-                border-radius: 8px;
-                background: linear-gradient(90deg,var(--accent),var(--accent-2));
-            }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 12px
-        }
-
-        .project {
-            position: relative;
-            min-height: 140px;
-            border-radius: 10px;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center
-        }
-
-            .project .overlay {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.12));
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                padding: 12px;
-                color: #fff
-            }
-
-        /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 18px
-        }
-
-        form .row {
-            display: flex;
-            gap: 8px
-        }
-
-        .field {
-            margin-bottom: 10px
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #e6e9ef
-        }
-
-            input:focus, textarea:focus {
-                outline: 2px solid rgba(10,163,163,0.12);
-                border-color: var(--accent)
-            }
-
-        .socials {
-            display: flex;
-            gap: 8px
-        }
-
-        footer {
-            padding: 18px 0;
-            color: var(--muted);
-            border-top: 1px solid #eef2f6
-        }
-
-        /* Responsive */
-        @media (max-width:900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2,1fr)
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr
-            }
-
-            .nav-links {
-                display: none
-            }
-        }
-
-        @media (max-width:480px) {
-            .skills-grid {
-                grid-template-columns: 1fr
-            }
-        }
-
-        .achievements {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #faf8fc;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #6b3fa0;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #777;
-            margin-bottom: 30px;
-        }
-
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 16px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.6s ease;
-        }
-
-        .achievement-slide {
-            min-width: 100%;
-            position: relative;
-        }
-
-            .achievement-slide img {
-                width: 100%;
-                height: 400px; /* الإطار الثابت */
-                object-fit: contain; /* ← يجعل الصورة بالكامل تظهر */
-                background-color: #f6f4fa; /* خلفية ناعمة تملأ الفراغات */
-                border-radius: 10px; /* حواف ناعمة */
-                transition: transform .3s ease;
-            }
-
-                .achievement-slide img:hover {
-                    transform: scale(1.02); /* لمسة تفاعلية بسيطة */
-                }
-
-
-        .caption {
-            position: relative !important;
-            background: rgba(0,0,0,0.6);
-            padding: 16px;
-            color: white;
-            text-align: center;
-            margin-top: 12px;
-        }
-
-            .caption h3 {
-                margin: 0;
-                font-size: 1.2rem;
-                color: #ffd86b;
-            }
-
-            .caption a {
-                color: #ffd86b;
-                text-decoration: underline;
-                font-weight: 500;
-            }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(107,63,160,0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            font-size: 22px;
-            transition: background 0.3s;
-        }
-
-            .carousel-btn:hover {
-                background: #6b3fa0;
-            }
-
-            .carousel-btn.prev {
-                left: 10px;
-            }
-
-            .carousel-btn.next {
-                right: 10px;
-            }
-
-        .linkedin-post {
-            background: #f8f9fa;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-            .linkedin-post h2 {
-                color: #0077b5;
-                margin-bottom: 30px;
-            }
-
-        .post-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .post-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            justify-content: flex-start;
-        }
-
-        .linkedin-icon {
-            width: 28px;
-            height: 28px;
-        }
-
-        .post-author {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .post-date {
-            color: #777;
-            font-size: 0.9rem;
-            margin-right: auto;
-        }
-
-        .post-image {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        .post-content p {
-            color: #333;
-            line-height: 1.8;
-            font-size: 1rem;
-            white-space: pre-line;
-        }
-
-        .post-link {
-            display: inline-block;
-            margin-top: 12px;
-            color: #0077b5;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-            .post-link:hover {
-                text-decoration: underline;
-            }
-
-        .view-btn {
-            margin-top: 10px;
-            background: #0078d7; /* الأزرق الأساسي */
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 6px 14px;
-            cursor: pointer;
-            font-size: 13px;
-            transition: background 0.3s ease, transform 0.2s;
-        }
-
-            .view-btn:hover {
-                background: #005fa3;
-                transform: scale(1.05);
-            }
-
-            .view-btn:active {
-                background: #004f8a;
-                transform: scale(0.98);
-            }
-
-
-
-        .skills-section {
-            padding: 40px 20px;
-        }
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
-        }
-
-        .skills-group {
-            background: var(--card-bg, #fff);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-            .skills-group:hover {
-                transform: translateY(-5px);
-            }
-
-            .skills-group h4 {
-                color: var(--accent, #0066cc);
-                margin-bottom: 10px;
-                font-size: 18px;
-            }
-
-            .skills-group ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .skills-group li {
-                margin-bottom: 8px;
-                color: var(--text, #333);
-                font-size: 15px;
-                padding-left: 10px;
-                position: relative;
-            }
-
-                .skills-group li::before {
-                    content: "•";
-                    color: var(--accent, #0066cc);
-                    position: absolute;
-                    left: 0;
-                }
-
-
-
-        .achievements-section {
-            text-align: center;
-            padding: 60px 0;
-            background: #faf8fc;
-        }
-
-        .title {
-            font-size: 2rem;
-            color: #6b3fa0;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 22px;
-        }
-
-        .ach-card {
-            background: #fff;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-            transition: 0.35s ease;
-            transform: translateY(0);
-            animation: fadeInUp 0.7s ease both;
-        }
-
-            .ach-card:hover {
-                transform: translateY(-6px) scale(1.02);
-            }
-
-            .ach-card img {
-                width: 100%;
-                height: 180px;
-                object-fit: cover;
-            }
-
-        .ach-info {
-            padding: 16px;
-            text-align: right;
-        }
-
-            .ach-info h3 {
-                margin: 0 0 6px;
-                color: #6b3fa0;
-                font-size: 1.13rem;
-            }
-
-            .ach-info p {
-                margin: 0 0 10px;
-                color: #444;
-                font-size: 0.93rem;
-            }
-
-        .ach-btn {
-            display: inline-block;
-            background: #6b3fa0;
-            padding: 8px 14px;
-            border-radius: 8px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.85rem;
-        }
-
-            .ach-btn:hover {
-                background: #563087;
-            }
-
-        /* زر المزيد */
-        .more-btn-wrap {
-            margin-top: 30px;
-        }
-
-        .more-btn {
-            background: #6b3fa0;
-            color: #fff;
-            padding: 13px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-            .more-btn:hover {
-                background: #563087;
-            }
-
-        /* Popup */
-        .popup {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            text-align: center;
-        }
-
-        .popup-content {
-            margin: auto;
-            width: 90%;
-            max-width: 600px;
-            border-radius: 12px;
-            animation: zoomIn 0.4s ease;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #fff;
-            font-size: 40px;
-            cursor: pointer;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.7);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* حذف تأثير body حتى ما يخرب تصميم الموقع */
-        .slider-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        /* تأثير التلاشي على الأطراف */
-        .slider::before,
-        .slider::after {
-            content: "";
-            position: absolute;
-            width: 200px;
-            height: 100px;
-            z-index: 2;
-            background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%);
-        }
-
-        .slider::after {
-            right: 0;
-            top: 0;
-            transform: rotateZ(180deg);
-        }
-
-        .slider::before {
-            left: 0;
-            top: 0;
-        }
-
-        /* Slider container */
-        .slider {
-            background: white;
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-            height: 100px;
-            width: 960px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Animation */
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(calc(-250px * 6)); /* نصف عدد الصور */
-            }
-        }
-
-        .slide-track {
-            display: flex;
-            width: calc(250px * 12); /* 6 صور أصلية + 6 مكررة */
-            animation: scroll 40s linear infinite;
-        }
-
-        /* Each slide */
-        .slide {
-            width: 250px;
-            height: 100px;
-        }
-
-            .slide img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain; /* حتى تناسب أي حجم صورة */
-            }
-
-        .skills-container ul {
-            list-style: none; /* إزالة أي بولت افتراضي */
-            padding-right: 20px; /* مسافة من اليمين للنص */
-            direction: rtl; /* يجعل النص والبولت على اليمين */
-        }
-
-            .skills-container ul li {
-                text-align: right; /* محاذاة النص لليمين */
-                position: relative; /* لتتمكن من إضافة بولت مخصص */
-                padding-right: 15px; /* مسافة للنقطة المخصصة */
-            }
-
-                /* إضافة بولت مخصص على اليمين فقط */
-                .skills-container ul li::before {
-                    content: "•"; /* شكل النقطة */
-                    position: absolute;
-                    right: 0; /* على اليمين */
-                    color: #000; /* لون البولت */
-                }
-
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #1e3a8a;
-        }
+        /* Sections, Cards, Projects Grid, iframe, etc. */
+        /* تم الاحتفاظ بالكود الأصلي هنا بدون تغيير لتصميم الصفحة */
 
         .projects-grid {
             display: grid;
@@ -866,12 +148,11 @@
             gap: 20px;
         }
 
-        /* الكرت */
         .project-card {
             position: relative;
             border-radius: 15px;
             padding: 15px;
-            box-shadow: 0 4px 10px rgba(30,58,138,0.2);
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             color: white;
@@ -882,13 +163,11 @@
             justify-content: flex-end;
         }
 
-            /* Hover */
             .project-card:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 6px 15px rgba(30,58,138,0.3);
+                box-shadow: 0 6px 15px rgba(30, 58, 138, 0.3);
             }
 
-            /* Overlay لتظليل الصورة */
             .project-card::before {
                 content: '';
                 position: absolute;
@@ -896,13 +175,13 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0,0,0,0.35);
+                background: rgba(0, 0, 0, 0.35);
                 border-radius: 15px;
                 z-index: 0;
             }
 
-        /* النصوص فوق Overlay */
-        .project-title, .project-desc {
+        .project-title,
+        .project-desc {
             position: relative;
             z-index: 1;
         }
@@ -918,7 +197,6 @@
             color: #ddd;
         }
 
-
         iframe {
             width: 100%;
             height: 500px;
@@ -926,7 +204,7 @@
             margin-top: 30px;
             border-radius: 10px;
             background: #ffffff;
-            box-shadow: 0 4px 10px rgba(30,58,138,0.1);
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.1);
         }
 
         /* زر المنيو للجوال */
@@ -937,14 +215,14 @@
             cursor: pointer;
         }
 
-        /* القائمة الجانبية */
+        /* القائمة الجانبية للجوال */
         .side-menu {
             position: fixed;
             top: 0;
-            right: -260px;
+            right: -260px; /* مخفية افتراضياً */
             width: 260px;
             height: 100%;
-            background: rgba(10,50,120,0.97);
+            background: rgba(10, 50, 120, 0.97);
             backdrop-filter: blur(4px);
             padding: 20px;
             transition: 0.3s;
@@ -959,7 +237,7 @@
                 font-size: 18px;
                 text-decoration: none;
                 padding: 10px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.15);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
             }
 
             .side-menu .close-btn {
@@ -980,16 +258,24 @@
                 display: block;
             }
         }
+
+        /* إخفاء القائمة الجانبية على الديسك توب */
+        @media (min-width: 769px) {
+            .side-menu {
+                display: none;
+            }
+        }
     </style>
 </head>
-
 
 <body>
 
     <header>
         <div class="container nav">
             <div class="brand">
-                <div class="photo" style="background-image:url('images/4.jpg'); width:100px; height:100px; border-radius:50%; overflow:hidden; background-size:cover; background-position:center; border:3px solid rgba(255,255,255,0.7); margin:auto;"></div>
+                <div class="photo"
+                     style="background-image:url('images/4.jpg'); width:100px; height:100px; border-radius:50%; overflow:hidden; background-size:cover; background-position:center; border:3px solid rgba(255,255,255,0.7); margin:auto;">
+                </div>
                 <div>
                     <h1 style="margin:0;font-size:18px;color:#fff">صفية الجابري</h1>
                     <div style="font-size:13px;color:rgba(255,255,255,0.9)">مهندسة برمجيات • مدربة معتمدة</div>
@@ -1002,95 +288,83 @@
             <nav class="nav-links">
                 <a href="index.html">الرئيسية</a>
                 <a href="https://safiafortechscribbles.blogspot.com/search?max-results=500" target="_blank">مدونتي</a>
-               
             </nav>
 
         </div>
-
-
     </header>
-    <!--القائمة الجانبية للجوال-->
+
+    <!-- القائمة الجانبية للجوال -->
     <div id="sideMenu" class="side-menu">
         <div class="close-btn" onclick="toggleMenu()">✖</div>
         <a href="index.html">الرئيسية</a>
-
         <a href="https://safiafortechscribbles.blogspot.com/search?max-results=500" target="_blank">مدونتي</a>
-        <a href="#contact" class="cta">للتواصل </a>
-
-        
     </div>
 
     <main class="container">
 
-          <h1>معرض النماذج البرمجية المصغرة</h1>
+        <h1>معرض النماذج البرمجية المصغرة</h1>
 
-   <div class="projects-grid">
-       <div class="project-card" data-img="images/login.jpg" onclick="loadProject('login-demo.html')">
-           <div class="project-title">نموذج صفحة تسجيل دخول</div>
-           <div class="project-desc">تصميم بسيط يعرض واجهة دخول المستخدم</div>
-       </div>
+        <div class="projects-grid">
+            <div class="project-card" data-img="images/login.jpg" onclick="loadProject('login-demo.html')">
+                <div class="project-title">نموذج صفحة تسجيل دخول</div>
+                <div class="project-desc">تصميم بسيط يعرض واجهة دخول المستخدم</div>
+            </div>
 
-       <div class="project-card" data-img="images/dash.jpg" onclick="loadProject('HrDashboard.html')">
-           <div class="project-title">نموذج لوحة تحكم</div>
-           <div class="project-desc">تصميم لوحة تحكم مبسطه لقسم الموارد البشرية</div>
-       </div>
+            <div class="project-card" data-img="images/dash.jpg" onclick="loadProject('HrDashboard.html')">
+                <div class="project-title">نموذج لوحة تحكم</div>
+                <div class="project-desc">تصميم لوحة تحكم مبسطه لقسم الموارد البشرية</div>
+            </div>
 
-       <div class="project-card" data-img="images/Quiz.jpg" onclick="loadProject('QuizPage.html')">
-           <div class="project-title">نموذج  صفحة اختبار مصغر</div>
-           <div class="project-desc">صفحة اختبار برمجي 20 سؤال</div>
-       </div>
+            <div class="project-card" data-img="images/Quiz.jpg" onclick="loadProject('QuizPage.html')">
+                <div class="project-title">نموذج صفحة اختبار مصغر</div>
+                <div class="project-desc">صفحة اختبار برمجي 20 سؤال</div>
+            </div>
 
-       <div class="project-card" data-img="images/Registration.jpg" onclick="loadProject('RegestForm.html')">
-           <div class="project-title">نموذج نموذج تسجيل</div>
-           <div class="project-desc">صفحة تسجيل لورشة</div>
-       </div>
-   </div>
+            <div class="project-card" data-img="images/Registration.jpg" onclick="loadProject('RegestForm.html')">
+                <div class="project-title">نموذج نموذج تسجيل</div>
+                <div class="project-desc">صفحة تسجيل لورشة</div>
+            </div>
+        </div>
 
-   <iframe id="viewer" src=""></iframe>
+        <iframe id="viewer" src=""></iframe>
 
-   <script>
-       function loadProject(url) {
-           const viewer = document.getElementById('viewer');
-           viewer.src = url;
+        <script>
+            function loadProject(url) {
+                const viewer = document.getElementById('viewer');
+                viewer.src = url;
+                viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
-           // 🔽 التنقل المباشر إلى iframe
-           viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-       }
-   </script>
+            function toggleMenu() {
+                const sideMenu = document.getElementById('sideMenu');
+                if (sideMenu.style.right === '0px') {
+                    sideMenu.style.right = '-260px';
+                } else {
+                    sideMenu.style.right = '0px';
+                }
+            }
 
-
-
-
-
-
-
-
-
+            // تعيين الخلفيات تلقائياً بناء على data-img
+            document.querySelectorAll('.project-card').forEach(card => {
+                const img = card.getAttribute('data-img');
+                if (img) {
+                    card.style.backgroundImage = `url(${img})`;
+                    card.style.backgroundSize = 'cover';
+                    card.style.backgroundPosition = 'center';
+                }
+            });
+        </script>
 
         <!-- footer -->
         <footer>
             <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
                 <div style="color:var(--muted)">© <span id="yr"></span> صفية الجابري — جميع الحقوق محفوظة</div>
-                <div style="color:var(--muted);font-size:14px">صمّم وبُني  بِكُلِِ شَغَف </div>
+                <div style="color:var(--muted);font-size:14px">صمّم وبُني بِكُلِِ شَغَف</div>
             </div>
         </footer>
 
     </main>
-    <script>
-    // JS لتعيين الخلفيات تلقائياً بناء على data-img
-    document.querySelectorAll('.project-card').forEach(card => {
-    const img = card.getAttribute('data-img');
-    if(img){
-    card.style.backgroundImage = `url(${img})`;
-    card.style.backgroundSize = 'cover';
-    card.style.backgroundPosition = 'center';
-    }
-    });
-    </script>
 
 </body>
 
-
-
-</html>>
-
+</html>
