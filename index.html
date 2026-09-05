@@ -178,16 +178,42 @@
             color: #fff;
             cursor: pointer;
         }
-
+        /* =====================================================
+           MOBILE MENU BUTTON
+        ===================================================== */
+        .mobile-menu-btn {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            padding: 0;
+            margin: 0;
+            border: 1px solid rgba(255,255,255,.35);
+            border-radius: 10px;
+            background: rgba(255,255,255,.10);
+            color: #fff;
+            font-size: 27px;
+            line-height: 1;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-family: inherit;
+            position: relative;
+            z-index: 10002;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mobile-menu-btn:active { transform: scale(.96); }
 
         /* =====================================================
-           SIDE MENU
+           SIDE MENU + OVERLAY
         ===================================================== */
         .side-menu {
             position: fixed;
             top: 0;
             right: 0;
             width: min(320px, 86vw);
+            height: 100vh;
             height: 100dvh;
             background: rgba(10,50,120,.98);
             backdrop-filter: blur(12px);
@@ -198,74 +224,53 @@
             gap: 8px;
             z-index: 10001;
             box-shadow: -12px 0 30px rgba(0,0,0,.25);
-            transform: translateX(110%);
+            transform: translate3d(110%,0,0);
             visibility: hidden;
             opacity: 0;
             transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
             overflow-y: auto;
+            overscroll-behavior: contain;
         }
-
         .side-menu.active {
-            transform: translateX(0);
+            transform: translate3d(0,0,0);
             visibility: visible;
             opacity: 1;
         }
-
         .side-menu a {
             color: #fff;
-            font-size: 16px;
+            font-size: 17px;
             padding: 10px 4px;
             border-bottom: 1px solid rgba(255,255,255,.12);
             display: block;
+            text-decoration: none;
+            transition: background .2s ease, padding-right .2s ease;
+            border-radius: 7px;
+            touch-action: manipulation;
         }
-
-        .side-menu a:hover,
-        .side-menu a:focus-visible {
-            color: #fff;
+        .side-menu a:hover, .side-menu a:active {
             background: rgba(255,255,255,.10);
-            border-radius: 8px;
-            outline: none;
+            padding-right: 10px;
         }
-
         .side-menu .close-btn {
-            color: #fff;
-            font-size: 26px;
-            line-height: 1;
-            cursor: pointer;
-            align-self: flex-end;
-            padding: 5px 8px;
-            margin-bottom: 8px;
-            border-radius: 8px;
-            user-select: none;
+            width: 42px; height: 42px; display: inline-flex;
+            align-items: center; justify-content: center;
+            color: #fff; font-size: 25px; cursor: pointer;
+            align-self: flex-end; border: 1px solid rgba(255,255,255,.25);
+            border-radius: 9px; background: rgba(255,255,255,.08);
+            margin-bottom: 8px; touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
-
-        .side-menu .close-btn:hover,
-        .side-menu .close-btn:focus-visible {
-            background: rgba(255,255,255,.12);
-            outline: none;
-        }
-
         .menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.45);
-            z-index: 10000;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            transition: opacity .3s ease, visibility .3s ease;
+            position: fixed; inset: 0; background: rgba(0,0,0,.45);
+            z-index: 10000; opacity: 0; visibility: hidden;
+            pointer-events: none; transition: opacity .3s ease, visibility .3s ease;
         }
+        .menu-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+        body.menu-open { overflow: hidden; touch-action: none; }
 
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
 
-        body.menu-open {
-            overflow: hidden;
-        }
-/* =====================================================
+
+        /* =====================================================
            HERO
         ===================================================== */
 
@@ -1078,27 +1083,6 @@
 
             .mobile-menu-btn {
                 display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 46px;
-                height: 46px;
-                padding: 0;
-                margin: 0;
-                border: 1px solid rgba(255,255,255,.35);
-                border-radius: 10px;
-                background: rgba(255,255,255,.10);
-                color: #fff;
-                font-size: 27px;
-                line-height: 1;
-                cursor: pointer;
-                flex-shrink: 0;
-                font-family: inherit;
-            }
-
-            .mobile-menu-btn:hover,
-            .mobile-menu-btn:focus-visible {
-                background: rgba(255,255,255,.18);
-                outline: none;
             }
         }
 
@@ -1171,12 +1155,12 @@
             </div>
 
 
-            <button class="mobile-menu-btn"
+            <button id="mobileMenuBtn"
+                    class="mobile-menu-btn"
                     type="button"
                     aria-label="فتح القائمة"
                     aria-controls="sideMenu"
-                    aria-expanded="false"
-                    onclick="toggleMenu()">
+                    aria-expanded="false">
                 ☰
             </button>
 
@@ -1237,15 +1221,18 @@
          القائمة الجانبية للهاتف
     ===================================================== -->
 
-    <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
+    <div id="menuOverlay" class="menu-overlay" aria-hidden="true"></div>
 
     <div id="sideMenu"
-         class="side-menu">
+         class="side-menu"
+         aria-hidden="true">
 
-        <div class="close-btn"
-             onclick="toggleMenu()">
-            ✖
-        </div>
+        <button id="closeMenuBtn"
+                class="close-btn"
+                type="button"
+                aria-label="إغلاق القائمة">
+            ✕
+        </button>
 
         <a href="#about">
             نبذة عني
@@ -1286,10 +1273,6 @@
         <a href="https://safiafortechscribbles.blogspot.com/search?max-results=500"
            target="_blank">
             مدونتي
-        </a>
-
-        <a href="IndexEng.html" class="language-switch">
-            English
         </a>
 
     </div>
@@ -3314,23 +3297,21 @@
 
         document.getElementById("yr").textContent =
             new Date().getFullYear();
-
-
         /* =====================================================
-           القائمة الجانبية للهاتف
+           القائمة الجانبية للجوال — نسخة مستقرة للموبايل
         ===================================================== */
-
         const sideMenu = document.getElementById("sideMenu");
         const menuOverlay = document.getElementById("menuOverlay");
-        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const closeMenuBtn = document.getElementById("closeMenuBtn");
 
         function openMenu() {
             if (!sideMenu || !menuOverlay) return;
-
             sideMenu.classList.add("active");
             menuOverlay.classList.add("active");
+            sideMenu.setAttribute("aria-hidden", "false");
+            menuOverlay.setAttribute("aria-hidden", "false");
             document.body.classList.add("menu-open");
-
             if (mobileMenuBtn) {
                 mobileMenuBtn.setAttribute("aria-expanded", "true");
                 mobileMenuBtn.setAttribute("aria-label", "إغلاق القائمة");
@@ -3339,11 +3320,11 @@
 
         function closeMenu() {
             if (!sideMenu || !menuOverlay) return;
-
             sideMenu.classList.remove("active");
             menuOverlay.classList.remove("active");
+            sideMenu.setAttribute("aria-hidden", "true");
+            menuOverlay.setAttribute("aria-hidden", "true");
             document.body.classList.remove("menu-open");
-
             if (mobileMenuBtn) {
                 mobileMenuBtn.setAttribute("aria-expanded", "false");
                 mobileMenuBtn.setAttribute("aria-label", "فتح القائمة");
@@ -3352,31 +3333,25 @@
 
         function toggleMenu() {
             if (!sideMenu) return;
-
-            if (sideMenu.classList.contains("active")) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
+            sideMenu.classList.contains("active") ? closeMenu() : openMenu();
         }
 
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener("click", toggleMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener("click", closeMenu);
+        if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+
         document.querySelectorAll("#sideMenu a").forEach(link => {
-            link.addEventListener("click", () => {
-                closeMenu();
-            });
+            link.addEventListener("click", closeMenu);
         });
 
         document.addEventListener("keydown", event => {
-            if (event.key === "Escape" && sideMenu?.classList.contains("active")) {
-                closeMenu();
-            }
+            if (event.key === "Escape" && sideMenu?.classList.contains("active")) closeMenu();
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 950 && sideMenu?.classList.contains("active")) {
-                closeMenu();
-            }
+            if (window.innerWidth > 950 && sideMenu?.classList.contains("active")) closeMenu();
         });
+
 
 
         /* =====================================================
