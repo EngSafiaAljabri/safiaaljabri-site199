@@ -183,40 +183,89 @@
         /* =====================================================
            SIDE MENU
         ===================================================== */
-
         .side-menu {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 280px;
-            height: 100%;
+            right: 0;
+            width: min(320px, 86vw);
+            height: 100dvh;
             background: rgba(10,50,120,.98);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 22px;
-            transition: .3s;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            z-index: 9999;
-            box-shadow: -8px 0 25px rgba(0,0,0,.2);
+            gap: 8px;
+            z-index: 10001;
+            box-shadow: -12px 0 30px rgba(0,0,0,.25);
+            transform: translateX(110%);
+            visibility: hidden;
+            opacity: 0;
+            transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+            overflow-y: auto;
         }
 
-            .side-menu a {
-                color: #fff;
-                font-size: 17px;
-                padding: 9px 0;
-                border-bottom: 1px solid rgba(255,255,255,.12);
-            }
+        .side-menu.active {
+            transform: translateX(0);
+            visibility: visible;
+            opacity: 1;
+        }
 
-            .side-menu .close-btn {
-                color: #fff;
-                font-size: 26px;
-                cursor: pointer;
-                align-self: flex-end;
-            }
+        .side-menu a {
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 4px;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+            display: block;
+        }
 
+        .side-menu a:hover,
+        .side-menu a:focus-visible {
+            color: #fff;
+            background: rgba(255,255,255,.10);
+            border-radius: 8px;
+            outline: none;
+        }
 
-        /* =====================================================
+        .side-menu .close-btn {
+            color: #fff;
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer;
+            align-self: flex-end;
+            padding: 5px 8px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            user-select: none;
+        }
+
+        .side-menu .close-btn:hover,
+        .side-menu .close-btn:focus-visible {
+            background: rgba(255,255,255,.12);
+            outline: none;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.45);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .3s ease, visibility .3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+/* =====================================================
            HERO
         ===================================================== */
 
@@ -1028,7 +1077,28 @@
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 46px;
+                padding: 0;
+                margin: 0;
+                border: 1px solid rgba(255,255,255,.35);
+                border-radius: 10px;
+                background: rgba(255,255,255,.10);
+                color: #fff;
+                font-size: 27px;
+                line-height: 1;
+                cursor: pointer;
+                flex-shrink: 0;
+                font-family: inherit;
+            }
+
+            .mobile-menu-btn:hover,
+            .mobile-menu-btn:focus-visible {
+                background: rgba(255,255,255,.18);
+                outline: none;
             }
         }
 
@@ -1101,10 +1171,14 @@
             </div>
 
 
-            <div class="mobile-menu-btn"
-                 onclick="toggleMenu()">
+            <button class="mobile-menu-btn"
+                    type="button"
+                    aria-label="فتح القائمة"
+                    aria-controls="sideMenu"
+                    aria-expanded="false"
+                    onclick="toggleMenu()">
                 ☰
-            </div>
+            </button>
 
 
             <nav class="nav-links">
@@ -1163,6 +1237,8 @@
          القائمة الجانبية للهاتف
     ===================================================== -->
 
+    <div id="menuOverlay" class="menu-overlay" onclick="closeMenu()"></div>
+
     <div id="sideMenu"
          class="side-menu">
 
@@ -1210,6 +1286,10 @@
         <a href="https://safiafortechscribbles.blogspot.com/search?max-results=500"
            target="_blank">
             مدونتي
+        </a>
+
+        <a href="IndexEng.html" class="language-switch">
+            English
         </a>
 
     </div>
@@ -3237,38 +3317,66 @@
 
 
         /* =====================================================
-           القائمة الجانبية
+           القائمة الجانبية للهاتف
         ===================================================== */
 
-        function toggleMenu() {
+        const sideMenu = document.getElementById("sideMenu");
+        const menuOverlay = document.getElementById("menuOverlay");
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
 
-            const menu =
-                document.getElementById("sideMenu");
+        function openMenu() {
+            if (!sideMenu || !menuOverlay) return;
 
-            if (menu.style.right === "0px") {
+            sideMenu.classList.add("active");
+            menuOverlay.classList.add("active");
+            document.body.classList.add("menu-open");
 
-                menu.style.right = "-280px";
-
-            } else {
-
-                menu.style.right = "0px";
-
+            if (mobileMenuBtn) {
+                mobileMenuBtn.setAttribute("aria-expanded", "true");
+                mobileMenuBtn.setAttribute("aria-label", "إغلاق القائمة");
             }
-
         }
 
+        function closeMenu() {
+            if (!sideMenu || !menuOverlay) return;
 
-        document.querySelectorAll("#sideMenu a")
-            .forEach(link => {
+            sideMenu.classList.remove("active");
+            menuOverlay.classList.remove("active");
+            document.body.classList.remove("menu-open");
 
-                link.addEventListener("click", () => {
+            if (mobileMenuBtn) {
+                mobileMenuBtn.setAttribute("aria-expanded", "false");
+                mobileMenuBtn.setAttribute("aria-label", "فتح القائمة");
+            }
+        }
 
-                    document.getElementById("sideMenu")
-                        .style.right = "-280px";
+        function toggleMenu() {
+            if (!sideMenu) return;
 
-                });
+            if (sideMenu.classList.contains("active")) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
 
+        document.querySelectorAll("#sideMenu a").forEach(link => {
+            link.addEventListener("click", () => {
+                closeMenu();
             });
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape" && sideMenu?.classList.contains("active")) {
+                closeMenu();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 950 && sideMenu?.classList.contains("active")) {
+                closeMenu();
+            }
+        });
 
 
         /* =====================================================
